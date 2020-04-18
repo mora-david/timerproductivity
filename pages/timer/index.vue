@@ -4,8 +4,8 @@
         <div class="fat">
         <div class="maincont">
         <h1 v->Working</h1>
-        <div >{{date/60}} minutos</div>
-        <div >{{((date/60)/totaltime)*100}} %</div>
+        <div >{{Math.trunc(date/60)}} minutos</div>
+        <div >{{Math.trunc(((date/60)/totaltime)*100)}} %</div>
         <div><button v-if="s1==0" @click="refreshw(), disapir()">Iniciar</button></div>
         <div><button v-if="stop=='parar'" @click="continuesw()">Continue</button></div>
         <div><button v-if="stop=='no'" @click="stopitw()">Parar</button></div>
@@ -14,8 +14,8 @@
 
         <div class="maincont">
         <h1 v->Lazy</h1>
-        <div>{{datel/60}}</div>
-        <div >{{((datel/60)/totaltime)*100}} %</div>
+        <div>{{Math.trunc(datel/60)}}</div>
+        <div >{{Math.trunc(((datel/60)/totaltime)*100)}} %</div>
         <div><button v-if="s2==0" @click="refreshl(),disapir2()">Iniciar</button></div>
         <div><button v-if="stopl=='parar'" @click="continuesl()">Continue</button></div>
         <div><button v-if="stopl=='no'" @click="stopitl()">Parar</button></div>
@@ -23,8 +23,8 @@
 
         <div class="maincont">
         <h1 v->Resting</h1>
-        <div>{{dater/60}}</div>
-        <div >{{((dater/60)/totaltime)*100}} %</div>
+        <div>{{Math.trunc(dater/60)}}</div>
+        <div >{{Math.trunc(((dater/60)/totaltime)*100)}} %</div>
         <div><button v-if="s3==0" @click="refreshr(),disapir3()">Iniciar</button></div>
         <div><button v-if="stopr=='parar'"@click="continuesr()">Continue</button></div>
         <div><button v-if="stopr=='no'" @click="stopitr()">Parar</button></div>

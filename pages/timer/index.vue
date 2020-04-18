@@ -3,39 +3,46 @@
 
         <div class="fat">
         <div class="maincont">
-        <h1 v->Working</h1>
-        <div >{{Math.trunc(date/60)}} minutos</div>
-        <div >{{Math.trunc(((date/60)/totaltime)*100)}} %</div>
+        <h2 v->Working</h2>
+        <div style="font-size: 1.3rem">{{Math.trunc(date/60)}} minutos</div>
+        <div style="font-size: 1.3rem">{{Math.trunc(((date/60)/totaltime)*100)}} %</div>
+          <div class="button-group">
         <div><button v-if="s1==0" @click="refreshw(), disapir()">Iniciar</button></div>
         <div><button v-if="stop=='parar'" @click="continuesw()">Continue</button></div>
         <div><button v-if="stop=='no'" @click="stopitw()">Parar</button></div>
+          </div>
         </div>
 
 
         <div class="maincont">
-        <h1 v->Lazy</h1>
-        <div>{{Math.trunc(datel/60)}}</div>
-        <div >{{Math.trunc(((datel/60)/totaltime)*100)}} %</div>
+        <h2 v->Lazy</h2>
+        <div style="font-size: 1.3rem">{{Math.trunc(datel/60)}} minutos</div>
+        <div style="font-size: 1.3rem">{{Math.trunc(((datel/60)/totaltime)*100)}} %</div>
+          <div class="button-group">
         <div><button v-if="s2==0" @click="refreshl(),disapir2()">Iniciar</button></div>
         <div><button v-if="stopl=='parar'" @click="continuesl()">Continue</button></div>
         <div><button v-if="stopl=='no'" @click="stopitl()">Parar</button></div>
+            </div>
         </div>
 
         <div class="maincont">
-        <h1 v->Resting</h1>
-        <div>{{Math.trunc(dater/60)}}</div>
-        <div >{{Math.trunc(((dater/60)/totaltime)*100)}} %</div>
+        <h2 v->Resting</h2>
+        <div style="font-size: 1.3rem">{{Math.trunc(dater/60)}} minutos</div>
+        <div style="font-size: 1.3rem">{{Math.trunc(((dater/60)/totaltime)*100)}} %</div>
+
+          <div class="button-group">
         <div><button v-if="s3==0" @click="refreshr(),disapir3()">Iniciar</button></div>
         <div><button v-if="stopr=='parar'"@click="continuesr()">Continue</button></div>
         <div><button v-if="stopr=='no'" @click="stopitr()">Parar</button></div>
+            </div>
         </div>
 
 
         </div>
 <diV class= "maincont">
-<h1>Total time</h1>
-        <div>{{this.totaltime-60*totaltimeh}} minutos</div>
-        <div v-if="totaltimeh>0">{{this.totaltimeh}} horas</div>
+<h2>Total time</h2>
+        <div style="font-size: 1.3rem">{{this.totaltime-60*totaltimeh}} minutos</div>
+        <div style="font-size: 1.3rem"v-if="totaltimeh>0">{{this.totaltimeh}} horas</div>
 </div>
     </div>
 </template>
@@ -63,14 +70,14 @@ export default {
 
         totaltime:0,
         totaltimeh: 0
-    
+
 
   }},
   created(){
       //this.refresh()
 
       this.totaltimer()
-     
+
   },
   mounted(){
   },
@@ -92,7 +99,7 @@ export default {
 //this.stopitl()
 
           let b = this.date + this.datel + this.dater
-          
+
           if(b > 60){
               this.totaltime = Math.trunc(b/60)
               if(b > 3600){
@@ -122,7 +129,7 @@ else{
 
             let a = setTimeout(this.refreshw, 1000)
 }
-            
+
 },
 
 stopitw(){
@@ -147,7 +154,7 @@ else{
 
             let a = setTimeout(this.refreshl, 1000)
 }
-            
+
 },
 
 stopitl(){
@@ -156,8 +163,8 @@ stopitl(){
 continuesl(){
     this.stopl = 'no'
     let a = this.refreshl()
-    
-    
+
+
 },
 
 
@@ -177,7 +184,7 @@ else{
 
             let a = setTimeout(this.refreshr, 1000)
 }
-            
+
 },
 
 stopitr(){
@@ -200,8 +207,15 @@ components:{
 
 
 <style>
+  body{
+    background: darkslategray;
+    color: blanchedalmond;
+  }
+
+
 .maincont{
-    padding:50px;
+    padding:30px;
+    padding-bottom: 10px;
 }
 
 
@@ -210,6 +224,9 @@ components:{
     display: flex;
 }
 
+.button-group button{
+  width: 100px;
+  }
 
 
 
